@@ -32,13 +32,13 @@ const Contact = () => {
       setLoading(false);
     }
   };
-  
+
   const handleMessageChange = (
     event: React.ChangeEvent<HTMLTextAreaElement>
   ) => {
     setMessage(event.target.value);
   };
-  
+
   return (
     <form
       autoComplete="off"
@@ -47,9 +47,12 @@ const Contact = () => {
       className="flex flex-col gap-3 mb-44 "
     >
       <div className="flex flex-col ">
-        <h1 className=" font-semibold  opacity-90 text-green-900 text-2xl tracking-wide">
-          Report an Incident
-        </h1>
+        <div className="flex justify-between items-center p-4 shadow-md border border-gray-300 rounded-2xl">
+          <h1 className="font-bold text-3xl text-green-800 tracking-wider uppercase">
+            Report an Incident
+          </h1>
+          <div className="h-1 w-20 bg-green-800 rounded-full hidden sm:block"></div>
+        </div>
         <div className="flex flex-col">
           <input
             type="text"

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Coins, Leaf, MapPin, Recycle, Users } from "lucide-react";
@@ -17,10 +17,11 @@ const poppins = Poppins({
 type Props = {};
 
 const page = ({}: Props) => {
-
   // TODO fetch impact data
   return (
-    <div className={`container mx-5 px-4 py-16 ${poppins.className} flex flex-col items-center`}>
+    <div
+      className={`container mx-5 px-4 py-16 ${poppins.className} flex flex-col space-y-12 items-center`}
+    >
       <section className="text-center mb-20">
         <AnimatedGlobe />
         <h1 className="text-6xl font-bold mb-6 text-gray-800 tracking-tight">
@@ -31,7 +32,7 @@ const page = ({}: Props) => {
           rewarding!
         </p>
         <div className="w-full flex flex-row justify-center gap-6">
-        <Button
+          <Button
             onClick={() => console.log("clicked")}
             className="bg-white hover:bg-green-300 text-green border border-green-500 text-lg py-6 px-10 rounded-full font-medium transition-all duration-300 ease-in-out transform hover:scale-105"
           >
@@ -47,26 +48,33 @@ const page = ({}: Props) => {
         </div>
       </section>
 
-      <section className="grid md:grid-cols-3 gap-10 mb-20">
-        <FeatureCard
-          icon={Leaf}
-          title="Eco-Friendly"
-          description="Contribute to a cleaner environment by reporting and collecting waste."
-        />
-        <FeatureCard
-          icon={Coins}
-          title="Earn Rewards"
-          description="Get tokens for your contributions to waste management efforts."
-        />
-        <FeatureCard
-          icon={Users}
-          title="Community-Driven"
-          description="Be part of a growing community committed to sustainable practices."
-        />
+      {/* Features Section */}
+      <section className="space-y-12 bg-green-50 p-10 rounded-3xl shadow-lg">
+        <h2 className="text-3xl md:text-4xl font-bold text-center text-green-800">
+          Why Waste Easy?
+        </h2>
+        <div className="grid md:grid-cols-3 gap-8">
+          <FeatureCard
+            icon={Leaf}
+            title="Eco-Friendly"
+            description="Contribute to a cleaner environment by reporting and collecting waste."
+          />
+          <FeatureCard
+            icon={Coins}
+            title="Earn Rewards"
+            description="Get tokens for your contributions to waste management efforts."
+          />
+          <FeatureCard
+            icon={Users}
+            title="Community-Driven"
+            description="Be part of a growing community committed to sustainable practices."
+          />
+        </div>
       </section>
 
-      <section className="bg-white p-10 rounded-3xl shadow-lg mb-20">
-        <h2 className="text-4xl font-bold mb-12 text-center text-gray-800">
+      {/* Impact Section */}
+      <section className="bg-green-50 p-10 rounded-3xl shadow-lg">
+        <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center text-green-800">
           Our Impact
         </h2>
         <div className="grid md:grid-cols-4 gap-6">
