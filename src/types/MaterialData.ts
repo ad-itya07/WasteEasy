@@ -1,7 +1,5 @@
-export interface MaterialData {
-  [key: string]: {
-    merits: string;
-    demerits: string;
-  };
-}
-
+export type Material = {
+  material: string;
+  merits: string;
+  demerits: string;
+};
