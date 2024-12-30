@@ -16,9 +16,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState<boolean | null>(null); // Start with `null`
 
-  // Check screen size on the client side
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
@@ -29,6 +28,9 @@ export default function RootLayout({
 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  // Avoid rendering until `isMobile` has been determined
+  if (isMobile === null) return null;
 
   return (
     <html lang="en">
@@ -55,8 +57,6 @@ export default function RootLayout({
             {children}
           </main>
         </div>
-        {/* {isMobile ? <MobileNavbar /> : <Navbar />} */}
-        {/* {children} */}
       </body>
     </html>
   );
